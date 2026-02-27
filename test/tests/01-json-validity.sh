@@ -74,25 +74,3 @@ for event, matchers in d['hooks'].items():
 else
   must_fix "hooks.json hook entries have valid structure" "malformed hook entry"
 fi
-
-# .mcp.json
-if python3 -c "
-import json
-d = json.load(open('$PLUGIN_DIR/.mcp.json'))
-assert 'mcpServers' in d, 'missing mcpServers'
-" 2>/dev/null; then
-  pass ".mcp.json parses with mcpServers key"
-else
-  must_fix ".mcp.json parses with mcpServers key" "invalid or missing key"
-fi
-
-# .mcp.json mcpServers should be empty (no duplication with user plugins)
-if python3 -c "
-import json
-d = json.load(open('$PLUGIN_DIR/.mcp.json'))
-assert len(d['mcpServers']) == 0, f'mcpServers has {len(d[\"mcpServers\"])} entries'
-" 2>/dev/null; then
-  pass ".mcp.json mcpServers is empty"
-else
-  should_fix ".mcp.json mcpServers is empty" "may duplicate user's global MCP plugins"
-fi

@@ -172,13 +172,13 @@ commands/
 skills/         8 domain knowledge bases with reference material
 hooks/          hooks.json (5 ambient hooks)
 scripts/        session-init.sh
-test/           235 tests across 8 groups (dev-only)
+test/           233 tests across 8 groups (dev-only)
 ```
 
 ## Testing
 
 ```bash
-bash test/run-all.sh              # Run all 235 tests
+bash test/run-all.sh              # Run all 233 tests
 bash test/run-all.sh 07           # Run a specific test group
 bash test/run-all.sh --list       # List available test groups
 ```
