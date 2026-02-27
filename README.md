@@ -172,15 +172,15 @@ commands/
 skills/         8 domain knowledge bases with reference material
 hooks/          hooks.json (5 ambient hooks)
 scripts/        session-init.sh
-qa/             286 tests across 10 groups
+.test/          286 tests across 10 groups (hidden, dev-only)
 ```
 
-## QA
+## Testing
 
 ```bash
-bash qa/run-all.sh              # Run all 286 tests
-bash qa/run-all.sh 07           # Run a specific test group
-bash qa/run-all.sh --list       # List available test groups
+bash .test/run-all.sh              # Run all 286 tests
+bash .test/run-all.sh 07           # Run a specific test group
+bash .test/run-all.sh --list       # List available test groups
 ```
 
 ## Background

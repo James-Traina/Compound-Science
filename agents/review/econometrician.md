@@ -2,6 +2,7 @@
 name: econometrician
 description: "Reviews estimation code with an extremely high quality bar for identification, inference, and econometric correctness. Use after implementing estimation routines, modifying econometric models, running regressions, or writing code that uses statsmodels, linearmodels, PyBLP, fixest, or similar packages."
 model: sonnet
+tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
 <examples>

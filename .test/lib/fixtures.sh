@@ -24,19 +24,19 @@ fixture_python_econometrics() {
   echo "$dir"
 }
 
-# Fixture: R project
+# Fixture: R econometrics project
 fixture_r_project() {
   local dir
   dir=$(fixture_dir "r-project")
-  echo "Package: mypackage" > "$dir/DESCRIPTION"
+  printf 'Package: mypackage\nImports: fixest, dplyr\n' > "$dir/DESCRIPTION"
   echo "$dir"
 }
 
-# Fixture: Stata project
+# Fixture: Stata econometrics project
 fixture_stata() {
   local dir
   dir=$(fixture_dir "stata")
-  touch "$dir/analysis.do"
+  echo "regress y x1 x2, robust" > "$dir/analysis.do"
   echo "$dir"
 }
 

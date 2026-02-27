@@ -15,7 +15,7 @@ HAS_PIPELINE=false
 # Python econometrics
 if [ -f "$PROJECT_DIR/requirements.txt" ] || [ -f "$PROJECT_DIR/pyproject.toml" ] || [ -f "$PROJECT_DIR/setup.py" ]; then
   for f in "$PROJECT_DIR/requirements.txt" "$PROJECT_DIR/pyproject.toml" "$PROJECT_DIR/setup.py"; do
-    if [ -f "$f" ] && grep -qiE "statsmodels|linearmodels|pyblp|econtools|doubleml|causalml|dowhy|scipy" "$f" 2>/dev/null; then
+    if [ -f "$f" ] && grep -qiE "statsmodels|linearmodels|pyblp|econtools|doubleml|causalml|dowhy" "$f" 2>/dev/null; then
       ESTIMATION_LANG="python"
       PROJECT_TYPE="empirical"
       break
@@ -23,10 +23,15 @@ if [ -f "$PROJECT_DIR/requirements.txt" ] || [ -f "$PROJECT_DIR/pyproject.toml" 
   done
 fi
 
-# R econometrics
+# R econometrics (check dependency files for econometrics packages)
 if [ -f "$PROJECT_DIR/DESCRIPTION" ] || [ -f "$PROJECT_DIR/renv.lock" ] || ls "$PROJECT_DIR"/*.Rproj 1>/dev/null 2>&1; then
-  ESTIMATION_LANG="R"
-  PROJECT_TYPE="empirical"
+  for f in "$PROJECT_DIR/DESCRIPTION" "$PROJECT_DIR/renv.lock"; do
+    if [ -f "$f" ] && grep -qiE "fixest|lfe|AER|plm|ivreg|did|rdrobust|Synth|estimatr|sandwich|bacondecomp" "$f" 2>/dev/null; then
+      ESTIMATION_LANG="R"
+      PROJECT_TYPE="empirical"
+      break
+    fi
+  done
 fi
 
 # Julia
@@ -37,10 +42,15 @@ if [ -f "$PROJECT_DIR/Project.toml" ]; then
   fi
 fi
 
-# Stata
+# Stata econometrics (check .do/.ado files for estimation commands)
 if ls "$PROJECT_DIR"/*.do 1>/dev/null 2>&1 || ls "$PROJECT_DIR"/*.ado 1>/dev/null 2>&1; then
-  ESTIMATION_LANG="stata"
-  PROJECT_TYPE="empirical"
+  for f in "$PROJECT_DIR"/*.do "$PROJECT_DIR"/*.ado; do
+    if [ -f "$f" ] && grep -qiE "regress|ivregress|xtreg|xtabond|areg|didregress|rdrobust|gmm|mle|nl" "$f" 2>/dev/null; then
+      ESTIMATION_LANG="stata"
+      PROJECT_TYPE="empirical"
+      break
+    fi
+  done
 fi
 
 # LaTeX paper
@@ -87,6 +97,8 @@ fi
 # Suggest available tools based on project type
 if [ "$PROJECT_TYPE" = "empirical" ] || [ "$PROJECT_TYPE" = "empirical-paper" ]; then
   MSG="$MSG Available: \`/estimate\`, \`/simulate\`, \`/identify\`, \`/workflows:plan\`."
+elif [ "$PROJECT_TYPE" = "paper" ]; then
+  MSG="$MSG Available: \`/identify\`, \`/workflows:brainstorm\`, \`/workflows:plan\`."
 fi
 
 if [ "$HAS_PIPELINE" = true ]; then

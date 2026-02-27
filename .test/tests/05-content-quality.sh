@@ -7,7 +7,7 @@ group "Web Dev Terms"
 # Primary exclusion list (from design spec: "Replace ALL web dev references")
 WEB_DEV_TERMS="Rails|React|Angular|Vue\.js|Express\.js|Node\.js|webpack|npm run|yarn |DHH|Kieran|iOS app|Android app|Ruby on Rails|ActiveRecord|middleware|REST API|GraphQL|Redux|Next\.js|Nuxt"
 
-hits=$(grep -rn --exclude-dir=qa --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude -E "$WEB_DEV_TERMS" "$PLUGIN_DIR" 2>/dev/null || true)
+hits=$(grep -rn --exclude-dir=.test --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude -E "$WEB_DEV_TERMS" "$PLUGIN_DIR" 2>/dev/null || true)
 if [ -z "$hits" ]; then
   pass "zero web dev terms"
 else
@@ -18,7 +18,7 @@ fi
 group "Placeholder Markers"
 
 # Real TODO/FIXME markers (not substring matches in words like "placeholder")
-real_todos=$(grep -rn --exclude-dir=qa --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude -E '^\s*(#|//|<!--)\s*(TODO|FIXME|XXX|HACK|TBD)\b' "$PLUGIN_DIR" 2>/dev/null || true)
+real_todos=$(grep -rn --exclude-dir=.test --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude -E '^\s*(#|//|<!--)\s*(TODO|FIXME|XXX|HACK|TBD)\b' "$PLUGIN_DIR" 2>/dev/null || true)
 if [ -z "$real_todos" ]; then
   pass "no TODO/FIXME/XXX/HACK/TBD comments"
 else
@@ -27,7 +27,7 @@ else
 fi
 
 # Actual placeholder content (not the word "placeholder" used descriptively)
-stub_content=$(grep -rn --exclude-dir=qa --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude -E 'PLACEHOLDER|<insert |<your |CHANGEME|FILL_IN' "$PLUGIN_DIR" 2>/dev/null || true)
+stub_content=$(grep -rn --exclude-dir=.test --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude -E 'PLACEHOLDER|<insert |<your |CHANGEME|FILL_IN' "$PLUGIN_DIR" 2>/dev/null || true)
 if [ -z "$stub_content" ]; then
   pass "no stub/placeholder content"
 else
@@ -38,7 +38,7 @@ fi
 group "Hardcoded Paths"
 
 # Personal paths (excluding README install URL which intentionally has GitHub username)
-personal_paths=$(grep -rn --exclude-dir=qa --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude '/Users/jat406\|/home/jat406' "$PLUGIN_DIR" --include="*.md" --include="*.sh" --include="*.json" 2>/dev/null | grep -v 'github.com/jat406' || true)
+personal_paths=$(grep -rn --exclude-dir=.test --exclude-dir=.ralph --exclude-dir=.serena --exclude-dir=.git --exclude-dir=.claude '/Users/jat406\|/home/jat406' "$PLUGIN_DIR" --include="*.md" --include="*.sh" --include="*.json" 2>/dev/null | grep -v 'github.com/jat406' || true)
 if [ -z "$personal_paths" ]; then
   pass "no hardcoded personal paths"
 else

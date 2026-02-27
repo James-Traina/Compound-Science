@@ -2,6 +2,7 @@
 name: referee
 description: "Simulates a top-5 economics journal referee providing a full report on research quality, contribution, and methodology. Use when reviewing draft papers, written artifacts, research projects before submission, or during /workflows:review on completed work."
 model: sonnet
+tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
 <examples>

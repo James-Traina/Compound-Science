@@ -80,7 +80,7 @@ Set parameters for the Monte Carlo study. Dispatch `monte-carlo-designer` agent 
    - Every replication must use a deterministic seed
    - Document the base seed prominently
    - Seeds must be set BEFORE any random number generation in each replication
-   - Use language-appropriate seeding: `np.random.seed()` / `set.seed()` / `Random.seed!()`
+   - Use language-appropriate seeding: `np.random.default_rng()` / `set.seed()` / `Random.seed!()`
 
 4. **Metrics to compute:**
 

@@ -8,8 +8,6 @@ argument-hint: "<research question or methodological problem>"
 
 **Pipeline mode:** This command operates fully autonomously. All decisions are made automatically.
 
-**Note: The current year is 2026.** Use this when dating brainstorm documents.
-
 Brainstorming helps answer **WHAT** approach to take through structured analysis. It precedes `/workflows:plan`, which answers **HOW** to implement it.
 
 **Process knowledge:** Load the `brainstorming` skill for detailed question techniques, approach exploration patterns, and parsimony principles.

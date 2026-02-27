@@ -2,6 +2,7 @@
 name: mathematical-prover
 description: "Analyzes proofs and derivations for logical validity, completeness, and correct use of mathematical machinery. Use when reviewing identification proofs, equilibrium existence arguments, convergence results, or any formal mathematical reasoning in research code and documents."
 model: sonnet
+tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
 <examples>

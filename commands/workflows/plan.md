@@ -10,8 +10,6 @@ argument-hint: "<research task, estimation problem, or methodological improvemen
 
 ## Introduction
 
-**Note: The current year is 2026.** Use this when dating plans and searching for recent documentation.
-
 Transform research descriptions, estimation problems, or methodological improvements into well-structured plan files that follow project conventions and best practices. This command auto-selects the appropriate detail level based on task complexity.
 
 ## Research Description

@@ -2,6 +2,7 @@
 name: identification-critic
 description: "Scrutinizes identification arguments for completeness, plausibility, and logical rigor. Use when formalizing identification strategies, writing exclusion restriction arguments, claiming point or set identification, deriving rank or order conditions, or during the /identify command."
 model: sonnet
+tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
 <examples>

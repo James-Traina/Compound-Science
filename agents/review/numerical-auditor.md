@@ -2,6 +2,7 @@
 name: numerical-auditor
 description: "Audits numerical code for floating-point stability, convergence correctness, reproducibility, and silent failures that corrupt estimation results. Use after implementing estimation routines, simulation code, optimization loops, likelihood computations, or any code involving matrix operations, numerical integration, or random number generation."
 model: sonnet
+tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
 <examples>

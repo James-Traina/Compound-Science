@@ -3,9 +3,9 @@
 # Run all tests and generate a consolidated report.
 #
 # Usage:
-#   ./qa/run-all.sh              # Run all tests
-#   ./qa/run-all.sh 05 07        # Run specific test groups
-#   ./qa/run-all.sh --list       # List available tests
+#   bash .test/run-all.sh              # Run all tests
+#   bash .test/run-all.sh 05 07        # Run specific test groups
+#   bash .test/run-all.sh --list       # List available tests
 
 set -euo pipefail
 
@@ -14,6 +14,7 @@ REPO_DIR="$(cd "$QA_DIR/.." && pwd)"
 PLUGIN_DIR="$REPO_DIR"
 REPORT_DIR="$QA_DIR/reports"
 mkdir -p "$REPORT_DIR"
+rm -f "$REPORT_DIR"/report-*.log
 
 # Shared report file for all tests in this run
 SHARED_REPORT="$REPORT_DIR/report-$(date +%Y%m%d-%H%M%S).log"
