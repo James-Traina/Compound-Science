@@ -15,13 +15,13 @@ Workflow commands chain the steps. `/lfg` runs the full loop autonomously; `/slf
 ## Install
 
 ```bash
-claude plugin install https://github.com/James-Traina/Compound-Science
+claude plugin install https://github.com/James-Traina/compound-science
 ```
 
 Or from a local clone:
 
 ```bash
-claude plugin install /path/to/Compound-Science
+claude plugin install /path/to/compound-science
 ```
 
 ## Quick start

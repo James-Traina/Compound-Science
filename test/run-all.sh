@@ -1,5 +1,5 @@
 #!/bin/bash
-# Compound-Science QA Suite
+# compound-science QA Suite
 # Run all tests and generate a consolidated report.
 #
 # Usage:

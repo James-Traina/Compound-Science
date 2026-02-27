@@ -1,5 +1,5 @@
 #!/bin/bash
-# Compound-Science: SessionStart hook
+# compound-science: SessionStart hook
 # Detects project type and injects relevant context into the session.
 set -euo pipefail
 
@@ -82,7 +82,7 @@ echo "export CS_HAS_PIPELINE=$HAS_PIPELINE" >> "$ENV_FILE"
 MSG=""
 
 if [ "$PROJECT_TYPE" != "unknown" ]; then
-  MSG="Compound-Science detected: **$PROJECT_TYPE** project"
+  MSG="compound-science detected: **$PROJECT_TYPE** project"
   [ "$ESTIMATION_LANG" != "none" ] && MSG="$MSG ($ESTIMATION_LANG)"
   MSG="$MSG."
 fi

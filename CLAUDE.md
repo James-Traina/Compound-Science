@@ -1,4 +1,4 @@
-# Compound-Science Plugin
+# compound-science Plugin
 
 AI-powered research tools for structural econometrics, causal inference, and quantitative social science. Built on the compound workflow principle: each unit of research work makes subsequent work easier.
 
